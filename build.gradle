@@ -1,38 +1,34 @@
 buildscript {
-	ext {
-		springBootVersion     = "2.0.4.RELEASE"
-	}
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-	}
+    ext {
+        springBootVersion     = "2.0.4.RELEASE"
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
 }
 
 apply plugin: 'java'
 apply plugin: 'idea'
-apply plugin: 'application'
-apply plugin: "org.springframework.boot"
 
 group 'SpringCloudStack'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
 
-mainClassName = "com.bhargo.Main"
+subprojects {
 
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: "org.springframework.boot"
 
-repositories {
-    mavenCentral()
+    repositories {
+        mavenCentral()
+    }
 }
 
 dependencies {
-    compile "org.springframework.boot:spring-boot-starter:2.0.4.RELEASE"
-    compile ("org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:2.0.1.RELEASE") {
-        exclude group: 'javax.servlet', module: 'servlet-api'
-        exclude group: 'com.google.code.gson', module: 'gson'
-    }
-
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }

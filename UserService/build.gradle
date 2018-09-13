@@ -1,0 +1,14 @@
+plugins {
+    id 'java'
+}
+
+group 'SpringCloudStack'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+//mainClassName = "com.bhargo.Main"
+
+dependencies {
+    compile project(':EurekaServer')
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
