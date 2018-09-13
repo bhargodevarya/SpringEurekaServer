@@ -1,14 +1,22 @@
 plugins {
     id 'java'
+    id 'application'
 }
 
 group 'SpringCloudStack'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
-//mainClassName = "com.bhargo.Main"
+mainClassName = "com.bhargo.Main"
 
 dependencies {
-    compile project(':EurekaServer')
+    //compile project(':EurekaServer')
+
+    compile "org.springframework.boot:spring-boot-starter-web:2.0.4.RELEASE"
+    compile ("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:2.0.1.RELEASE") {
+        exclude group: 'javax.servlet', module: 'servlet-api'
+        exclude group: 'com.google.code.gson', module: 'gson'
+    }
+
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
