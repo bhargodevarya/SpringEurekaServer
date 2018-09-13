@@ -1,0 +1,6 @@
+eureka:
+  instance:
+   homePageUrlPath: http://localhost:8080/user/setup
+   appName: userService1
+   hostName: localhost
+   statusPageUrlPath: http://localhost:8080/user/setup
