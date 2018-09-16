@@ -1,4 +1,5 @@
 rootProject.name = 'SpringEurekaServer'
 include 'UserService'
 include 'EurekaServer'
+include 'SpringZuulGateway'
 
