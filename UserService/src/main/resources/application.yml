@@ -1,9 +1,13 @@
 eureka:
   instance:
-   homePageUrlPath: http://localhost:8080/user/setup
-   appName: userService
+   homePageUrlPath: http://localhost:9090/user/setup
+   appName: userservice
    hostName: localhost
-   statusPageUrlPath: http://localhost:8080/user/setup
+   statusPageUrlPath: http://localhost:9090/user/setup
 
-#server:
-  #port: 9090
+server:
+  port: 9090
+
+spring:
+  application:
+    name: userservice
