@@ -1,0 +1,9 @@
+so:
+  auth:
+    url: https://stackoverflow.com/oauth
+    accessTokenUrl: https://stackoverflow.com/oauth/access_token
+  api: https://api.stackexchange.com/2.2
+  application:
+    seDemoApp:
+      clientId:
+      key:
