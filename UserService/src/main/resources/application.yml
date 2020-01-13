@@ -4,6 +4,11 @@ eureka:
    appName: userservice
    hostName: localhost
    statusPageUrlPath: http://localhost:9090/user/setup
+  client:
+   serviceUrl:
+    # url for the eureka server
+    defaultZone: http://172.29.128.1:8300/eureka
+
 
 server:
   port: 9090
