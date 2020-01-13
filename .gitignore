@@ -1,11 +1,10 @@
 *.iml
 *.ipr
 *.iws
-.gradle/
 .idea/
 build/
 out/
-gradle/
+.gradle/
 
 */*/*/resources/*.jar
 

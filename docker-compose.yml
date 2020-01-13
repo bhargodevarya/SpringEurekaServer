@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  eurekaservice:
+    image: eureka_server
+    ports:
+    - 8761:8761
+

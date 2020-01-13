@@ -10,11 +10,18 @@ mainClassName = "com.bhargo.EurekaApp"
 group 'SpringCloudStack'
 version '1.0-SNAPSHOT'
 
-
 dependencies {
     compile "org.springframework.boot:spring-boot-starter:2.0.4.RELEASE"
     compile ("org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:2.0.1.RELEASE") {
         exclude group: 'javax.servlet', module: 'servlet-api'
         exclude group: 'com.google.code.gson', module: 'gson'
     }
+}
+
+def dockerFileName = file('Dockerfile')
+
+docker {
+    name 'user_service'
+    files tasks.bootJar.outputs
+    dockerfile dockerFileName
 }
