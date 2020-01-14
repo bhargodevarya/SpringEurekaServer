@@ -1,3 +1,7 @@
+language: java
+
+os: linux
+
 sudo: required
 
 services:
@@ -5,9 +9,6 @@ services:
 
 before_install:
   - echo "This is before install"
-
-install:
-  - apt-get update
 
 script:
   - gradlew check
