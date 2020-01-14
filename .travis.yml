@@ -13,7 +13,9 @@ before_install:
 install: skip
 
 script:
-  - gradlew check
+  - ls -l
+  - cd SpringEurekaServer
+  - gradlew check bootJar
   - docker image build -t bhargodevarya/repo:eureka-from-travis ./EurekaServer
   - docker login -u $DOCKER_HUB_ID -p $DOCKER_HUB_PWD
   - docker image push bhargodevarya/repo:eureka-from-travis
