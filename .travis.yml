@@ -10,6 +10,8 @@ services:
 before_install:
   - echo "This is before install"
 
+install: skip
+
 script:
   - gradlew check
   - docker image build -t bhargodevarya/repo:eureka-from-travis ./EurekaServer
