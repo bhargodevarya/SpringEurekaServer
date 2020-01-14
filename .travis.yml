@@ -1,0 +1,24 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - echo "This is before install"
+
+install:
+  - apt-get update
+
+script:
+  - gradlew check
+  - docker image build -t bhargodevarya/repo:eureka-from-travis ./EurekaServer
+  - docker login -u $DOCKER_HUB_ID -p $DOCKER_HUB_PWD
+  - docker image push bhargodevarya/repo:eureka-from-travis
+  - docker logout
+
+
+after_script:
+  - echo "Script is finished"
+
+after_success:
+  - echo "after success"

@@ -7,7 +7,7 @@ eureka:
   client:
    serviceUrl:
     # url for the eureka server
-    defaultZone: http://172.29.128.1:8300/eureka
+    defaultZone: http://localhost:8300/eureka
 
 
 server:

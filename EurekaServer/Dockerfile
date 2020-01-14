@@ -2,6 +2,10 @@ FROM openjdk:8
 
 WORKDIR /application/eurekaserver/jar
 
-ADD *.jar .
+#for the gradle plugin uncomment the following ADD
+#ADD *.jar .
+
+#for docker cli use the following ADD
+ADD build/libs/EurekaServer-1.0-SNAPSHOT.jar .
 
 CMD ["java", "-jar", "EurekaServer-1.0-SNAPSHOT.jar"]
