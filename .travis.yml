@@ -24,6 +24,7 @@ after_script:
   - echo "Script is finished"
 
 deploy:
+  provider: script
   script: bash dockerpush.sh $DOCKER_HUB_ID $DOCKER_HUB_PWD
   on:
     master
