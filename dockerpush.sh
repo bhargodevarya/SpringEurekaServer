@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+echo "Push the image to docker hub"
+
 DOCKER_HUB_ID=$1
 DOCKER_HUB_PWD=$2
 tag="bhargodevarya/repo:eureka-"
