@@ -18,11 +18,15 @@ before_install:
 install: skip
 
 script:
-  - bash test.sh $DOCKER_HUB_ID $DOCKER_HUB_PWD
-
+  - bash build.sh
 
 after_script:
   - echo "Script is finished"
+
+deploy:
+  script: bash dockerpush.sh $DOCKER_HUB_ID $DOCKER_HUB_PWD
+  on:
+    master
 
 after_success:
   - echo "after success"
