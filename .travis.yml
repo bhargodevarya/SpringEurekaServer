@@ -7,17 +7,18 @@ sudo: required
 services:
   - docker
 
+branches:
+  only:
+    - master
+    - /feature*/
+
 before_install:
   - echo "This is before install"
 
 install: skip
 
 script:
-  - ./gradlew check :EurekaServer:bootJar
-  - docker image build -t bhargodevarya/repo:eureka-from-travis ./EurekaServer
-  - docker login -u $DOCKER_HUB_ID -p $DOCKER_HUB_PWD
-  - docker image push bhargodevarya/repo:eureka-from-travis
-  - docker logout
+  - bash test.sh $DOCKER_HUB_ID $DOCKER_HUB_PWD
 
 
 after_script:
