@@ -30,11 +30,5 @@ after_script:
 #  on:
 #    master
 
-deploy:
-  provider:
-  script: bash dockerpush.sh $DOCKER_HUB_ID $DOCKER_HUB_PWD
-  on:
-    master
-
 after_success:
   - echo "after success"
