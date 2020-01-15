@@ -12,7 +12,6 @@ tag+="${commit:0:6}"
 
 echo "$tag"
 
-./gradlew check :EurekaServer:bootJar
 docker image build -t "$tag" ./EurekaServer
 docker login -u "$DOCKER_HUB_ID" -p "$DOCKER_HUB_PWD"
 docker image push "$tag"

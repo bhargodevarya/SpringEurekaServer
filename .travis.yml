@@ -23,8 +23,15 @@ script:
 after_script:
   - echo "Script is finished"
 
+#TODO, deploy to EBS
+#deploy:
+#  provider: script
+#  script: bash dockerpush.sh $DOCKER_HUB_ID $DOCKER_HUB_PWD
+#  on:
+#    master
+
 deploy:
-  provider: script
+  provider:
   script: bash dockerpush.sh $DOCKER_HUB_ID $DOCKER_HUB_PWD
   on:
     master
