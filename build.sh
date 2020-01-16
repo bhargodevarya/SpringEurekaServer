@@ -13,7 +13,16 @@ echo "Source branch is $ORIGIN_BRANCH and target branch is $TARGET_BRANCH"
 
 if [ "$ORIGIN_BRANCH" == "master" ]; then
   ./gradlew :EurekaServer:bootJar
-  ./dockerpush.sh "$DOCKER_HUB_ID" "$DOCKER_HUB_PWD" "$COMMIT_ID"
+  tag="bhargodevarya/repo:eureka-"
+  echo "starting the script"
+  tag+="${COMMIT:0:6}"
+
+  echo "Creating image with tha tage $tag"
+
+  docker image build -t "$tag" ./EurekaServer
+  docker login -u "$DOCKER_HUB_ID" -p "$DOCKER_HUB_PWD"
+  docker image push "$tag"
+  docker logout
 fi
 
 echo "Script finished"
