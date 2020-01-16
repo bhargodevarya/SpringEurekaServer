@@ -12,6 +12,10 @@ COMMIT_ID=$5
 echo "Source branch is $ORIGIN_BRANCH and target branch is $TARGET_BRANCH"
 echo "Commit is $COMMIT_ID"
 
+currentCommit=commit=$(git rev-parse HEAD)
+
+echo "Current commit is $currentCommit"
+
 if [ "$ORIGIN_BRANCH" == "master" ]; then
   ./gradlew :EurekaServer:bootJar
   tag="bhargodevarya/repo:eureka-"
