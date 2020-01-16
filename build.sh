@@ -10,6 +10,7 @@ COMMIT_ID=$5
 ./gradlew check
 
 echo "Source branch is $ORIGIN_BRANCH and target branch is $TARGET_BRANCH"
+echo "Commit is $COMMIT_ID"
 
 if [ "$ORIGIN_BRANCH" == "master" ]; then
   ./gradlew :EurekaServer:bootJar
