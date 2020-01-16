@@ -4,11 +4,12 @@ echo "Push the image to docker hub"
 
 DOCKER_HUB_ID=$1
 DOCKER_HUB_PWD=$2
+COMMIT_ID=$3
 tag="bhargodevarya/repo:eureka-"
 
 echo "starting the script"
-commit=$(git rev-parse HEAD)
-tag+="${commit:0:6}"
+#commit=$(git rev-parse HEAD)
+tag+="${COMMIT:0:6}"
 
 echo "$tag"
 
