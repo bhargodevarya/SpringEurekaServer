@@ -18,7 +18,7 @@ before_install:
 install: skip
 
 script:
-  - bash build.sh
+  - bash build.sh $DOCKER_HUB_ID $DOCKER_HUB_PWD $TRAVIS_PULL_REQUEST_BRANCH $TRAVIS_BRANCH
 
 after_script:
   - echo "Script is finished"
