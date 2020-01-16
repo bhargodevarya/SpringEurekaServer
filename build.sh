@@ -5,16 +5,13 @@ DOCKER_HUB_ID=$1
 DOCKER_HUB_PWD=$2
 ORIGIN_BRANCH=$3
 TARGET_BRANCH=$4
-COMMIT_ID=$5
-
-./gradlew check
 
 echo "Source branch is $ORIGIN_BRANCH and target branch is $TARGET_BRANCH"
-echo "Commit is $COMMIT_ID"
 
-currentCommit=commit=$(git rev-parse HEAD)
-
+COMMIT=$(git rev-parse HEAD)
 echo "Current commit is $currentCommit"
+
+./gradlew check
 
 if [ "$ORIGIN_BRANCH" == "master" ]; then
   ./gradlew :EurekaServer:bootJar
@@ -22,7 +19,7 @@ if [ "$ORIGIN_BRANCH" == "master" ]; then
   echo "starting the script"
   tag+="${COMMIT:0:6}"
 
-  echo "Creating image with tha tage $tag"
+  echo "Creating image with tha tag $tag"
 
   docker image build -t "$tag" ./EurekaServer
   docker login -u "$DOCKER_HUB_ID" -p "$DOCKER_HUB_PWD"
