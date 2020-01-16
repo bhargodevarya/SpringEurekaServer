@@ -11,7 +11,7 @@ COMMIT_ID=$5
 
 echo "Source branch is $ORIGIN_BRANCH and target branch is $TARGET_BRANCH"
 
-if [[ "$ORIGIN_BRANCH" == "master" && "$TARGET_BRANCH" == "" ]]; then
+if [ "$ORIGIN_BRANCH" == "master" ]; then
   ./gradlew :EurekaServer:bootJar
   ./dockerpush.sh "$DOCKER_HUB_ID" "$DOCKER_HUB_PWD" "$COMMIT_ID"
 fi
